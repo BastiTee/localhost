@@ -1,3 +1,2 @@
-## localhost
-> Static webpage content
-
+# localhost
+> Personal website
