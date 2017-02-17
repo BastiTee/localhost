@@ -1,2 +1,2 @@
 # localhost
-> Personal hub website
+> Personal hub site
