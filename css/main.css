@@ -146,6 +146,10 @@ textarea {
     color: #3DA8C5;
 }
 
+span.site-blogmeta {
+    font-size: 80%;
+}
+
 .site-bloglist {
     /*border: 1px solid black;*/
     text-align: center;

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Shortcut to run Jekyll/GitHub pages on Windows"
-date:   2016-11-12 11:34:49 +0100
+date:   2016-12-01 11:34:49 +0100
 categories:
 ---
 These are the steps I did in order to setup Jekyll on Windows and to create the first iteration of this blog. First I followed most of the steps on [jekyll-windows](http://jekyll-windows.juthilo.com/).
