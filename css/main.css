@@ -114,8 +114,8 @@ textarea {
     text-decoration: none;
     color: #000;
     background-color: #DDEFF4;
-}
 
+}
 
 /* ====================================================== INDEX PAGE */
 
@@ -228,10 +228,11 @@ td.post-back {
     text-align: right;
     font-size: 150%;
     /*border: 1px solid red;*/
-    padding: 0px 20px 0px 20px;
+    padding: 0px 15px 0px 0px;
 }
 
 td.post-back a {
+    /*font-family: 'Share Tech Mono';*/
     background-color: #3DA8C5 !important;
     color: #fff !important;
 }
