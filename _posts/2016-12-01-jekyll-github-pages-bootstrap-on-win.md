@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Shortcut to run Jekyll/GitHub pages on Windows"
+title:  "Jekyll & GitHub pages bootstrapped on Windows 10"
 date:   2016-12-01 11:34:49 +0100
 categories:
 ---
-These are the steps I did in order to setup Jekyll on Windows and to create the first iteration of this blog. First I followed most of the steps on [jekyll-windows](http://jekyll-windows.juthilo.com/).
+These are the steps I did in order to setup Jekyll/Ruby on Windows 10 and to create the first iteration of this blog.
+
+First I followed most of the steps on [jekyll-windows](http://jekyll-windows.juthilo.com/).
 
 * Downloaded [Ruby](http://rubyinstaller.org/downloads/) and installed it with "Add to path" option.
 * Downloaded [Ruby DevKit](http://rubyinstaller.org/downloads/) and unpacked.
@@ -28,7 +30,7 @@ gem install rouge
 
 ```shell
 cd <your-place-for-repos>
-git clone https://github.com/BastiTee/bastitee.github.io
+git clone https://github.com/UserName/username.github.io
 ```
 
 
@@ -37,7 +39,7 @@ Then I basically followed the steps in [Get Started with GitHub pages](https://2
 * Created a basic jekyll site (folder must be empty, otherwise you'll get a Conflict-error)
 
 ```shell
-jekyll new bastitee.github.io
+jekyll new username.github.io
 ```
 
 * Ran Jekyll and viewed the result on my [localhost](http://localhost:8000).
@@ -46,7 +48,7 @@ jekyll new bastitee.github.io
 jekyll serve --watch --host localhost --port 8000
 ```
 
-* Pushed the stuff back to github after I set up the repository with credentials etc.
+* Pushed the stuff back to GitHub after I set up the repository with credentials etc.
 
 ```shell
 echo "# Readme" > README.md
@@ -55,5 +57,5 @@ git commit -m "Init."
 git push -u origin master
 ```
 
-* Viewed the result on [GitHub](https://bastitee.github.io)
+* Viewed the result on [GitHub](https://UserName.github.io)
 * Obsessed over the CSS for some hours...
