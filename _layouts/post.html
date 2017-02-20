@@ -5,6 +5,7 @@
 <body id="main-body">
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
+<!-- <<<<<<< 3473656389b0f9bb690ceb11beeba8b72c1218aa -->
 <header class="header-container">
 <div id="header">
     <div id="post-back"><a href="{{ site.baseurl }}"><i class="fa fa-arrow-left back-button"></i></a></div>
@@ -14,6 +15,21 @@
 <div id="header-buttonbar">
     {% if page.twitter %} <div id="twitter-container"><a href="{{ page.twitter }}"><i id="twitter-button" class="fa fa-twitter button" aria-hidden="true"></i></a></div> {% endif %}
 </div>
+<!-- =======
+<header class="post-header">
+<table><tr>
+<td class="post-main">
+<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+<p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+</td>
+{% if page.twitter %}<td class="post-back"><a href="{{ page.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i>
+</a></td>{% endif %}
+{% if page.source %}<td class="post-back"><a href="{{ page.source }}"><i class="fa fa-code" aria-hidden="true"></i>
+</a></td>{% endif %}
+<td class="post-back"><a href="{{ site.url }}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+</a></td>
+</tr></table>
+>>>>>>> better icons; -->
 </header>
 
 <div class="post-content" itemprop="articleBody">
