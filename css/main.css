@@ -113,8 +113,80 @@ textarea {
 #main-body a {
     text-decoration: none;
     color: #000;
-    background-color: #DDEFF4;
+    /* background-color: #DDEFF4; */
+}
 
+header.header-container{
+    position: fixed;
+    width: 100%;
+    padding: 5px 0px 5px 10px;
+    background-color: #3DA8C5;
+    color: #fff;
+    box-shadow: 0 6px 25px -3px #bbb;
+    z-index: 9999;
+}
+
+h1.headline {
+    margin: 0;
+    display: inline-block;
+}
+
+div#twitter-container{
+    display: inline-block;
+    font-size: 2em;
+    background-color: transparent;
+}
+
+div#post-title{
+    display: inline-block;
+    width: calc(100% - 10em);
+}
+
+div#post-meta{
+    display: inline-block;
+    width: calc(100% - 10em);
+    height: 1.4em;
+    padding-left: 4em;
+}
+
+div#post-back{
+    display: inline-block;
+    width: 3em;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+
+div#post-back:hover{
+    font-size: 1.5em;
+}
+
+div#header-buttonbar{
+    text-align: center;
+    position: absolute;
+    top: 0.4em;
+    right: 1em;
+}
+
+i.button {
+    width: 1.5em;
+    height: 1.3em;
+    padding-top: 0.2em;
+    border-radius: 3em;
+    transition: all 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+
+i#twitter-button{
+
+}
+
+i#twitter-button:hover{
+    background-color: white;
+}
+
+
+i.back-button{
+    color: white;
 }
 
 /* ====================================================== INDEX PAGE */
@@ -180,6 +252,13 @@ span.site-blogmeta {
 
 }
 
+/*
+.post-content[itemprop="articleBody"]{
+   padding-top: 8em;
+}
+
+*/
+
 .post-header {
     padding: 5px 0px 5px 10px;
     background-color: #3DA8C5;
@@ -220,6 +299,8 @@ span.site-blogmeta {
     display: block;
 }
 
+
+/*
 td.post-main {
     width: 100%;
 }
@@ -227,16 +308,15 @@ td.post-main {
 td.post-back {
     text-align: right;
     font-size: 150%;
-    /*border: 1px solid red;*/
     padding: 0px 15px 0px 0px;
 }
 
 td.post-back a {
-    /*font-family: 'Share Tech Mono';*/
+    /*font-family: 'Share Tech Mono';*/ /*
     background-color: #3DA8C5 !important;
     color: #fff !important;
 }
-
+*/
 
 /* ==========================================================================
    Helper classes
