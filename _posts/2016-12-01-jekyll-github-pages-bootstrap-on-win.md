@@ -31,7 +31,8 @@ gem install rouge
 
 ```shell
 cd <your-place-for-repos>
-git clone https://github.com/UserName/username.github.io
+git clone https://github.com/^
+UserName/username.github.io
 ```
 
 
