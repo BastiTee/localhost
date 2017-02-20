@@ -5,14 +5,16 @@
 <body id="main-body">
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-<header class="header-container">
+<header id="post-header">
 
-<div id="header">
-    <div id="post-title"><h1 id="headline">{{ page.title }}</h1></div>
-    <div id="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</time></div>
+<div id="post-header-title">
+    <div id="post-header-title">
+    <h1 id="post-header-headline">{{ page.title }}</h1>
+    </div>
+    <div id="post-header-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</time></div>
 </div>
 
-<div class="header-buttonbar">
+<div id="post-header-buttonbar">
 
     <div id="back-container"><a href="{{ site.url }}">
     <i id="back-button" class="fa fa-long-arrow-left button" ></i></a>
@@ -32,11 +34,17 @@
 
 </header>
 
-<div class="post-content" itemprop="articleBody">
+<div id="post-content" itemprop="articleBody">
 {{ content }}
 </div>
 
 </article>
+<script>
+/* pad main content to height of page */
+var headerHeight = document.getElementById("post-header").clientHeight;
+console.log("header height = " + headerHeight);
+document.getElementById("post-content").style.paddingTop = headerHeight + 15 + "px";
+</script>
 </body>
 
 </html>

@@ -95,9 +95,11 @@ textarea {
 	#3DA8C5 Basic Blue
 	#DDEFF4 Light Blue Link
 	#777777 Grey (Shadow)
-
-   MARGIN/PADDING TOP RIGHT BOTTOM LEFT (TRBL)
 */
+
+
+/* MAIN BODY SETTINGS COVERING POSTS AND SITES
+============================================================================*/
 
 #main-body {
     font-family: 'PT Sans Narrow', sans-serif;
@@ -116,9 +118,64 @@ textarea {
     background-color: #DDEFF4;
 }
 
-/* =================================================== POST HEADER LINE */
 
-header.header-container{
+/* SITE DEFAULTS (CURRENTLY INDEX PAGE ONLY)
+============================================================================*/
+
+#site-header {
+    position: relative;
+    margin: 0px;
+    padding: 15px 0px 15px 0px;
+    text-align: center;
+}
+
+#site-header p {
+    font-family: 'Share Tech Mono';
+    font-size: 200%;
+    color: #3DA8C5;
+}
+
+#site-logo {
+    width: 45px;
+}
+
+#site-avatar {
+    box-shadow: 0 6px 25px -3px #777;
+    margin-top: 5px;
+}
+
+#site-content {
+    text-align: center;
+    padding: 5px 0px 10px 0px;
+}
+
+#site-bloglist {
+    text-align: center;
+}
+
+#site-bloglist li {
+    padding: 0px;
+    list-style-type: none;
+}
+
+#site-bloglist ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#site-blogicon {
+    padding: 0px 0px 20px 0px;
+}
+
+#site-bloglist span.site-blogmeta {
+    font-size: 80%;
+}
+
+
+/* POST DEFAULTS
+============================================================================*/
+
+#post-header {
     position: fixed;
     width: 100%;
     padding: 5px 0px 5px 10px;
@@ -128,26 +185,30 @@ header.header-container{
     z-index: 9999;
 }
 
-h1#headline {
+div#post-header-title {
+    display: inline-block;
+    width: calc(100% - 10em);
+}
+
+h1#post-header-headline {
     margin: 0;
     display: inline-block;
 }
 
-div#post-title{
+div#post-header-meta {
     display: inline-block;
     width: calc(100% - 10em);
-    /*margin-bottom: 15px;*/
 }
 
-div#post-meta{
-    display: inline-block;
-    width: calc(100% - 10em);
-    /*padding-left: 4em;*/
+#post-content {
+    padding: 0px 0px 10px 10px;
 }
 
-/* =================================================== BUTTON BAR */
 
-div.header-buttonbar{
+/* POST HEADER BAR BUTTONS W/ TRANSITIONS
+============================================================================*/
+
+div#post-header-buttonbar {
     text-align: center;
     position: absolute;
     top: 0.4em;
@@ -161,7 +222,7 @@ i.button {
     transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 
-div#back-container{
+div#back-container {
     display: inline-block;
     font-size: 2em;
     background-color: transparent;
@@ -171,16 +232,16 @@ div#back-container a {
     background-color: #3DA8C5;
 }
 
-i#back-button{
+i#back-button {
     color: white;
 }
 
-i#back-button:hover{
+i#back-button:hover {
     color: #3DA8C5;
     background-color: white;
 }
 
-div#twitter-container{
+div#twitter-container {
     display: inline-block;
     font-size: 2em;
     background-color: transparent;
@@ -190,11 +251,11 @@ div#twitter-container a {
     background-color: #3DA8C5;
 }
 
-i#twitter-button{
+i#twitter-button {
     color: white;
 }
 
-i#twitter-button:hover{
+i#twitter-button:hover {
     color: #3DA8C5;
     background-color: white;
 }
@@ -203,123 +264,21 @@ div#source-container a {
     background-color: #3DA8C5;
 }
 
-div#source-container{
+div#source-container {
     display: inline-block;
     font-size: 2em;
     background-color: transparent;
 }
 
-i#source-button{
+i#source-button {
     color: white;
 }
 
-i#source-button:hover{
+i#source-button:hover {
     color: #3DA8C5;
     background-color: white;
 }
 
-/* ====================================================== INDEX PAGE */
-
-.site-content {
-    text-align: center;
-    padding: 5px 0px 10px 0px;
-}
-
-.site-header {
-    position: relative;
-    margin: 0px;
-    padding: 15px 0px 15px 0px;
-    text-align: center;
-}
-
-.site-header .logo {
-    width: 45px;
-}
-
-.site-header .avatar {
-    box-shadow: 0 6px 25px -3px #777;
-    margin-top: 5px;
-}
-
-.site-header p {
-    font-family: 'Share Tech Mono';
-    font-size: 200%;
-    color: #3DA8C5;
-}
-
-span.site-blogmeta {
-    font-size: 80%;
-}
-
-.site-bloglist {
-    /*border: 1px solid black;*/
-    text-align: center;
-    padding: 0px;
-    margin: 0px;
-}
-
-.site-bloglist li {
-    /*border: 1px solid red;*/
-    padding: 0px;
-    list-style-type: none;
-}
-
-.site-bloglist ul {
-    padding: 0px;
-    margin: 0px;
-}
-
-.site-bloglist .icon {
-    /*border: 1px solid red;*/
-    padding: 0px 0px 20px 0px;
-}
-
-
-/* ====================================================== POSTS */
-
-.post {
-
-}
-
-.post-header {
-    padding: 5px 0px 5px 10px;
-    background-color: #3DA8C5;
-    color: #fff;
-    box-shadow: 0 6px 25px -3px #bbb;
-    position: fixed;
-    z-index: 9999;
-}
-
-.post-content {
-    padding: 100px 0px 10px 10px;
-}
-
-.post-content a {
-    text-decoration: none;
-    color: #000;
-    background-color: #DDEFF4;
-}
-
-.post-content a:hover {
-    text-decoration: none;
-    color: #000;
-    background-color: #3DA8C5;
-}
-
-.post-link {
-    background-color: #fff;
-    text-decoration: none;
-    color: #000;
-}
-
-.post-title {
-    margin: 5px 0px 10px 0px;
-}
-
-.post-header table {
-    width: 100%;
-    display: block;
-}
 
 /* ==========================================================================
    Helper classes

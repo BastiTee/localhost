@@ -4,11 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ site.title | escape }} &#183; {{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-<link rel="stylesheet" href="{{ " /css/main.css " | prepend: site.baseurl }}">
-<link rel="stylesheet" href="{{ " /css/rouge.css " | prepend: site.baseurl }}">
-<link href='{{ " /css/fonts/PT+Sans+Narrow.css " | prepend: site.baseurl }}' rel='stylesheet' type='text/css'>
-<link href='{{ " /css/fonts/Share+Tech+Mono.css " | prepend: site.baseurl }}' rel='stylesheet' type='text/css'>
-<link href='{{ " /css/fonts/Font+Awesome.css " | prepend: site.baseurl }}' rel='stylesheet' type='text/css'>
-<link rel="icon" type="image/png" href="{{ " /css/favicon.png " | prepend: site.baseurl }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+<link rel="stylesheet" href="{{ " /css/main.css " }}">
+<link rel="stylesheet" href="{{ " /css/rouge.css " }}">
+<link href='{{ " /css/fonts/PT+Sans+Narrow.css " }}' rel='stylesheet' type='text/css'>
+<link href='{{ " /css/fonts/Share+Tech+Mono.css " }}' rel='stylesheet' type='text/css'>
+<link href='{{ " /css/fonts/Font+Awesome.css " }}' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/png" href="{{ " /css/favicon.png " }}">
 </head>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+
+<body id="main-body">
+<header id="site-header">
+
+    <img id="site-logo" src="{{ " /css/favicon.png " }}" title="Icon made by popcic from www.flaticon.com (CC BY 3.0)" />
+    <p>basti tee</p>
+    <img id="site-avatar" src="/content/avatar.jpg" alt="Avatar" />
+
+</header>
+
+<div id="site-content">
+    {{ content }}
+</div>
+
+<div id="site-bloglist">
+<div id="site-blogicon"><i class="fa fa-book" aria-hidden="true"></i></div>
+<ul >
+{% for post in site.posts %}
+<li>
+<a class="site-bloglink" href="{{ post.url }}">{{ post.title }}</a><span class="site-blogmeta"> &#9642; {{ post.date | date: "%d.%m.%Y" }}</span><br/>
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+</body>
+
+</html>

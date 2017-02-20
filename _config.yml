@@ -1,18 +1,11 @@
-# Site settings
 title: basti.space
 email: basti.tee@gmx.de
-# description: >
-  # --
-baseurl: ""
 url: "https://basti.space"
 github_username:  bastitee
-
-# Build settings
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-
 exclude:
   - README
   - "*.sh"

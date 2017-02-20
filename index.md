@@ -1,5 +1,5 @@
 ---
-layout: index
+layout: site
 ---
 human &#9642; mnmlst &#9642; devops &#9642; &#956;sic<br/>de_DE/en_US &#9642; estd. 1983 &#9642; @bonn_DE
 <p><br/></p>
