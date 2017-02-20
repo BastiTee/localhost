@@ -187,17 +187,17 @@ textarea {
 
 div#post-header-title {
     display: inline-block;
-    width: calc(100% - 10em);
+    width: calc(100% - 5em);
 }
 
-h1#post-header-headline {
+#post-header-headline {
     margin: 0;
     display: inline-block;
 }
 
 div#post-header-meta {
-    display: inline-block;
-    width: calc(100% - 10em);
+    /*border: 1px solid red;*/
+    width: calc(100% - 5em);
 }
 
 #post-content {
