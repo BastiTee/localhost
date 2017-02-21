@@ -342,9 +342,17 @@ i#source-button:hover {
 .highlight .hll { background-color: #ffffcc }
 .highlight  {
     background: #eee;
-    margin:0px;
-    padding-left: 10px;
+    margin: 0px;
 }
+.highlight code {
+    border: 1px solid red;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
