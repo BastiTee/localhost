@@ -108,7 +108,7 @@ textarea {
 }
 
 #main-body p {
-    margin: 0px;
+    margin: 10px 0px 10px 0px;
     padding: 0px;
 }
 
@@ -118,6 +118,26 @@ textarea {
     background-color: #DDEFF4;
 }
 
+#main-body h1 {
+    /*background-color: #F3ECE3;*/
+    font-weight: bold;
+    margin: 20px 0px 0px 0px;
+    font-size: 130%;
+}
+
+#main-body h2 {
+    /*background-color: #F3ECE3;*/
+    font-weight: bold;
+    margin: 15px 0px 0px 0px;
+    font-size: 110%;
+}
+
+#main-body h3, h4, h5 {
+    /*background-color: #F3ECE3;*/
+    font-weight: normal;
+    margin: 10px 0px 0px 0px;
+    font-size: 100%;
+}
 
 /* SITE DEFAULTS (CURRENTLY INDEX PAGE ONLY)
 ============================================================================*/
@@ -195,6 +215,11 @@ div#post-header-title {
     display: inline-block;
 }
 
+h1#post-header-headline {
+    background-color: #3DA8C5;
+    margin: 7px 0px 10px 0px;
+}
+
 div#post-header-meta {
     /*border: 1px solid red;*/
     width: calc(100% - 5em);
@@ -204,6 +229,19 @@ div#post-header-meta {
     padding: 0px 0px 10px 10px;
 }
 
+#post-content .footnotes {
+    margin: 0px;
+    padding: 0px;
+}
+
+#post-content .footnotes ol {
+    padding-left: 1.3em;
+    margin: 0px;
+}
+
+#post-content .footnotes ol p {
+    margin: 0px 0px 2px 0px;
+}
 
 /* POST HEADER BAR BUTTONS W/ TRANSITIONS
 ============================================================================*/
