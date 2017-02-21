@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll & GitHub pages bootstrapped on Windows 10"
+title:  "GitHub pages & Jekyll bootstrapped on Windows 10"
 date:   2016-12-01 11:34:49 +0100
 twitter: https://twitter.com/basti_tee/status/833599194246107137
 source:  https://github.com/BastiTee/localhost/blob/master/_posts/2016-12-01-jekyll-github-pages-bootstrap-on-win.md
