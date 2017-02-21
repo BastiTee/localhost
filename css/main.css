@@ -345,7 +345,6 @@ i#source-button:hover {
     margin: 0px;
 }
 .highlight code {
-    border: 1px solid red;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
