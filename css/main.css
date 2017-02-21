@@ -103,7 +103,7 @@ textarea {
 
 #main-body {
     font-family: 'PT Sans Narrow', sans-serif;
-    margin: 0px;
+    margin: 0px 10px 0px 0px;
     padding: 0px;
 }
 
@@ -255,6 +255,7 @@ div#post-header-buttonbar {
 i.button {
     padding: 0.2em;
     transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+
 }
 
 div#back-container {
@@ -264,7 +265,12 @@ div#back-container {
 }
 
 div#back-container a {
+    background-color: transparent;
+}
+
+div#back-container i {
     background-color: #3DA8C5;
+    border-radius: 3em;
 }
 
 i#back-button {
@@ -283,7 +289,12 @@ div#twitter-container {
 }
 
 div#twitter-container a {
+    background-color: transparent;
+}
+
+div#twitter-container i {
     background-color: #3DA8C5;
+    border-radius: 3em;
 }
 
 i#twitter-button {
@@ -302,7 +313,12 @@ div#source-container {
 }
 
 div#source-container a {
+    background-color: transparent;
+}
+
+div#source-container i {
     background-color: #3DA8C5;
+    border-radius: 3em;
 }
 
 i#source-button {
