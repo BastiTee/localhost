@@ -196,13 +196,13 @@ textarea {
 ============================================================================*/
 
 #post-header {
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
     padding: 5px 0px 5px 10px;
     background-color: #3DA8C5;
     color: #fff;
     box-shadow: 0 6px 25px -3px #bbb;
-    z-index: 9999;
+    /*z-index: 9999;*/
 }
 
 div#post-header-title {
@@ -221,7 +221,6 @@ h1#post-header-headline {
 }
 
 div#post-header-meta {
-    /*border: 1px solid red;*/
     width: calc(100% - 5em);
 }
 
@@ -247,17 +246,15 @@ div#post-header-meta {
 ============================================================================*/
 
 div#post-header-buttonbar {
+    position: fixed;
     text-align: center;
-    position: absolute;
     top: 0.4em;
-    right: 1em;
+    right: 0.5em;
 }
 
 i.button {
-    display: inline-block;
-    border-radius: 3em;
     padding: 0.2em;
-    transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
 
 div#back-container {
@@ -298,14 +295,14 @@ i#twitter-button:hover {
     background-color: white;
 }
 
-div#source-container a {
-    background-color: #3DA8C5;
-}
-
 div#source-container {
     display: inline-block;
     font-size: 2em;
     background-color: transparent;
+}
+
+div#source-container a {
+    background-color: #3DA8C5;
 }
 
 i#source-button {
