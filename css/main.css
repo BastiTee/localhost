@@ -139,6 +139,21 @@ textarea {
     font-size: 100%;
 }
 
+#main-body sup {
+    vertical-align: baseline;
+}
+
+#main-body a.footnote {
+    /*vertical-align: middle;*/
+    font-style: normal;
+    margin: 0em 0em 0em 0.3em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    font-size: 90%;
+    border-radius: 1.2em;
+    background-color: #3DA8C5;
+    color: #FFFFFF;
+}
+
 /* SITE DEFAULTS (CURRENTLY INDEX PAGE ONLY)
 ============================================================================*/
 
