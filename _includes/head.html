@@ -5,9 +5,10 @@
 <title>{% if page.title %}{{ site.title | escape }} &#183; {{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
-<link rel="stylesheet" href="{{ " /css/main.css " }}">
-<link href='{{ " /css/fonts/PT+Sans+Narrow.css " }}' rel='stylesheet' type='text/css'>
-<link href='{{ " /css/fonts/Share+Tech+Mono.css " }}' rel='stylesheet' type='text/css'>
-<link href='{{ " /css/fonts/Font+Awesome.css " }}' rel='stylesheet' type='text/css'>
-<link rel="icon" type="image/png" href="{{ " /css/favicon.png " }}">
+<link rel="stylesheet" href="{{ " /res/css/main.css " }}">
+<link href='{{ " /res/font/PT+Sans+Narrow.css " }}' rel='stylesheet' type='text/css'>
+<link href='{{ " /res/font/Share+Tech+Mono.css " }}' rel='stylesheet' type='text/css'>
+<link href='{{ " /res/font/Font+Awesome.css " }}' rel='stylesheet' type='text/css'>
+<script src='{{ " /res/lib/jquery-3.1.1.min.js " }}'></script>
+<link rel="icon" type="image/png" href="{{ " /res/gfx/favicon.png " }}">
 </head>

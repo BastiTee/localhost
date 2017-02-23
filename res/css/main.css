@@ -161,14 +161,15 @@ textarea {
 #site-header {
     position: relative;
     margin: 0px;
-    padding: 15px 0px 15px 0px;
-    text-align: center;
+    padding: 15px 0px 0px 0px;
+    text-align: center;1
 }
 
 #site-header p {
     font-family: 'Share Tech Mono';
     font-size: 200%;
     color: #3DA8C5;
+    margin: 0.1em 0em 0.1em 0em;
 }
 
 #site-logo {
