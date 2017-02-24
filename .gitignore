@@ -4,3 +4,4 @@ _posts
 _config.yml
 _includes/site-ext.html
 _includes/footer.html
+_includes/script.js
