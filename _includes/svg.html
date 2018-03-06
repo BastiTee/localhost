@@ -4,5 +4,9 @@
 </script>
 </div>
 {% if include.fs %}
+{% if include.fslabel %}
+[{{ include.fslabel }}]({{ include.path }})
+{% else %}
 [Vollbild]({{ include.path }})
+{% endif %}
 {% endif %}
