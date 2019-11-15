@@ -20,6 +20,10 @@ RUN apk upgrade --update \
             yaml-dev libffi-dev libxml2-dev \
  && apk search --update
 
-RUN mkdir /workdir
+RUN mkdir /jekyll
+COPY _config.yml /jekyll/_config.yml
+COPY index.md /jekyll/index.md
+WORKDIR /jekyll
+
 EXPOSE 8000
-ENTRYPOINT ["jekyll"]
+ENTRYPOINT ["sh"]
