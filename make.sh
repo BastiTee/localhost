@@ -4,8 +4,10 @@ cd "$( cd "$( dirname "$0" )"; pwd )"
 
 # Command line parsing
 POSTS_FOLDER=${1:-$(pwd)/_posts}
-TARGET_FOLDER=${2:-$(pwd)/_site}
-COMMAND=${3:-server --host 0.0.0.0 --port 8000 --incremental}
+shift
+TARGET_FOLDER=${1:-$(pwd)/_site}
+shift
+COMMAND=${1:-server --host 0.0.0.0 --port 8000 --trace}
 echo "POSTS FOLDER:   $POSTS_FOLDER"
 echo "TARGET FOLDER:  $TARGET_FOLDER"
 echo "JEKYLL COMMAND: $COMMAND"

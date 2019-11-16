@@ -15,7 +15,7 @@ ruby-io-console ruby-irb ruby-json ruby-rake
 # Required ruby gems
 RUN gem install --no-document \
 redcarpet kramdown maruku rdiscount RedCloth liquid pygments.rb sass safe_yaml \
-nokogiri open-uri ruby-readability digest
+nokogiri
 # Jekyll main component
 RUN gem install --no-document jekyll -v 2.5 
 # Jekyll plugins
