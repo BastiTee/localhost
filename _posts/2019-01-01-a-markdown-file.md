@@ -78,6 +78,12 @@ Now a nested list:
 Notice again how text always lines up on 4-space indents (including
 that last line which continues item 3 above).
 
+# Rules
+
+A horizontal rule follows.
+
+***
+
 # Code
 
     # Let me re-iterate ...
@@ -125,10 +131,3 @@ Tables can look like this:
 | 11       | glass        | transparent |
 
 Table: Shoes, their sizes, and what they're made of
-
-
-# Rules
-
-A horizontal rule follows.
-
-***

@@ -280,7 +280,6 @@ textarea {
     margin: 0px;
     padding: 15px 0px 0px 0px;
     text-align: center;
-    1
 }
 
 #site-header p {
@@ -464,19 +463,17 @@ i#source-button:hover {
 ============================================================================*/
 
 #site-footer hr {
-    margin: 0px 0px 10px 0px;
+    margin: 30px 0px 10px 0px;
 }
 
 #site-footer p {
-    margin-left: 10px;
+    padding: 10px 0px 20px 0px;
+    margin: 0px 0px 0px 10px;
     font-size: 80%;
+    text-align: center;
 }
 
 #site-footer img {}
-
-#site-footer p {
-    margin: 0px;
-}
 
 
 /* ROUGE CODE HIGHLIGHTING
