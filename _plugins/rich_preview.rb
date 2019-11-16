@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'open-uri'
 require 'nokogiri'
+require 'digest'
 
 module Jekyll
   class PreviewTag < Liquid::Tag
@@ -11,19 +12,24 @@ module Jekyll
     end
 
     def build_preview_content
-      doc = Nokogiri::HTML(open(@link_url))
+      if cache_exists?(@link_url)
+        @preview_content = read_cache(@link_url).to_s
+      else
+        doc = Nokogiri::HTML(open(@link_url))
 
-      title = get_title(doc)
-      image = get_image(doc)
-      desc = get_description(doc)
-      
-      @preview_content = "
+        title = get_title(doc)
+        image = get_image(doc)
+        desc = get_description(doc)
+        
+        @preview_content = "
 <div class=\"preview-tag\">
   <img src=\"#{image}\">
   <a href=\"#{@link_url}\" target=\"_blank\">#{title}</a>
   <div class=\"preview-tag-title\">#{desc}</div>
 </div>
 "
+        write_cache(@link_url, @preview_content)
+      end
     end
 
     def render(context)
@@ -56,6 +62,22 @@ module Jekyll
 
   def get_tag_from_doc(doc, tag)
     return doc.search(tag).map { |n| n['content']}.first
+  end
+
+  def cache_key(link_url)
+    Digest::MD5.hexdigest(link_url)
+  end
+
+  def cache_exists?(link_url)
+    File.exist?("_cache/#{cache_key(link_url)}")
+  end
+
+  def write_cache(link_url, content)
+    File.open("_cache/#{cache_key(link_url)}", 'w') { |f| f.write(content) }
+  end
+
+  def read_cache(link_url)
+    File.read("_cache/#{cache_key(link_url)}")
   end
 
   end
