@@ -1,3 +1,5 @@
 .jekyll*
 _cache/
 _site/
+_posts/
+_drafts/

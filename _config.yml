@@ -10,5 +10,7 @@ kramdown:
   syntax_highlighter: rouge
 permalink: /:title:output_ext
 exclude:
-  - README
+  - "*.txt"
   - "*.sh"
+  - README
+  - Dockerfile
