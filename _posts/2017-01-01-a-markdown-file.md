@@ -2,9 +2,11 @@
 layout: post
 title: "Example page"
 date:   2017-01-01 00:00:00 +0100
-twitter:
-source:
+twitter: https://twitter.com/BastiTee
+source: 
 ---
+
+![Alt text for image](res/assets/photo.jpg)
 
 Paragraphs are separated by a blank line.
 

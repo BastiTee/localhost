@@ -23,7 +23,8 @@ RUN apk upgrade --update \
 RUN mkdir /jekyll
 COPY _config.yml /jekyll/_config.yml
 COPY index.md /jekyll/index.md
-WORKDIR /jekyll
+COPY feed.xml /jekyll/feed.xml
 
+WORKDIR /jekyll
 EXPOSE 8000
-ENTRYPOINT ["sh"]
+ENTRYPOINT ["jekyll"]

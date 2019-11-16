@@ -8,6 +8,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+permalink: /:title:output_ext
 exclude:
   - README
   - "*.sh"
