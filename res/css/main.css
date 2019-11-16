@@ -111,7 +111,7 @@ textarea {
 }
 
 #main-body code {
-    font-size: 118%;
+    font-size: 100%;
 }
 
 #main-body p {
@@ -509,9 +509,9 @@ i#source-button:hover {
 }
 
 .highlight {
-    background: #EEEEEE;
-    margin: 0em 0em 1em 0em;
-    box-shadow: 0 6px 25px -3px #CCCCCC;
+    background: #F3F3F3;
+    margin: 0em;
+    padding: 0.2em;
 }
 
 .highlight code {
