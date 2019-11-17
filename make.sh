@@ -3,13 +3,14 @@ set -e
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
 DEFAULT_COMMAND="server \
---host 0.0.0.0 \
---port 8000 \
---trace \
---incremental \
 --drafts \
+--host 0.0.0.0 \
+--port 50600 \
+--incremental \
 --livereload \
 --watch \
+--livereload-port 50601 \
+--trace \
 "
 
 print_help() {
@@ -61,17 +62,18 @@ EOF
 docker build -t "basti-tee/jekyll" .
 
 # Run dockerized jekyll
-docker run --rm -ti -p 8000:8000 \
--v $(pwd)/_config.yml:/jekyll/_config.yml \
--v $(pwd)/index.md:/jekyll/index.md \
--v $(pwd)/feed.xml:/jekyll/feed.xml \
--v $(pwd)/_includes:/jekyll/_includes \
--v $(pwd)/_layouts:/jekyll/_layouts \
--v $(pwd)/_plugins:/jekyll/_plugins \
--v $(pwd)/res:/jekyll/res \
--v ${POSTS_FOLDER}:/jekyll/_posts \
--v ${DRAFTS_FOLDER}:/jekyll/_drafts \
--v ${ASSETS_FOLDER}:/jekyll/res/assets \
--v ${TARGET_FOLDER}:/jekyll/_site \
+docker run --rm -ti -p 50600:50600 -p 50601:50601 \
+-e LOCAL_USER_ID=`id -u $USER` \
+-v $(pwd)/_config.yml:/home/user/jekyll/_config.yml \
+-v $(pwd)/index.md:/home/user/jekyll/index.md \
+-v $(pwd)/feed.xml:/home/user/jekyll/feed.xml \
+-v $(pwd)/_includes:/home/user/jekyll/_includes \
+-v $(pwd)/_layouts:/home/user/jekyll/_layouts \
+-v $(pwd)/_plugins:/home/user/jekyll/_plugins \
+-v $(pwd)/res:/home/user/jekyll/res \
+-v ${POSTS_FOLDER}:/home/user/jekyll/_posts \
+-v ${DRAFTS_FOLDER}:/home/user/jekyll/_drafts \
+-v ${ASSETS_FOLDER}:/home/user/jekyll/res/assets \
+-v ${TARGET_FOLDER}:/home/user/jekyll/_site \
 "basti-tee/jekyll" \
 $COMMAND

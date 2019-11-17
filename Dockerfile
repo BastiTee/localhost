@@ -24,10 +24,12 @@ build-base zlib-dev ruby-dev readline-dev \
 yaml-dev libffi-dev libxml2-dev
 # Index refresh
 RUN apk search --update
-# Jekyll setup
-RUN mkdir /jekyll
-RUN mkdir /jekyll/_cache
+
+RUN apk add su-exec
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Working preparation
-WORKDIR /jekyll
-EXPOSE 8000
-ENTRYPOINT ["jekyll"]
+EXPOSE 50600 50601
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

@@ -2,7 +2,7 @@ title: localhost
 feed-title: localhost
 feed-description: Basti's localhost engine
 email: basti.tee@posteo.de
-url: "http://localhost:8000"
+url: "http://localhost:50600"
 github_username:  bastitee
 markdown: kramdown
 kramdown:
