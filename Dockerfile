@@ -15,11 +15,7 @@ ruby-io-console ruby-irb ruby-json ruby-rake
 # Required ruby gems
 RUN gem install --no-document \
 redcarpet kramdown maruku rdiscount RedCloth liquid pygments.rb sass safe_yaml \
-nokogiri
-# Jekyll main component
-RUN gem install --no-document jekyll -v 2.5 
-# Jekyll plugins
-RUN gem install jekyll-paginate jekyll-sass-converter jekyll-sitemap \
+nokogiri jekyll jekyll-paginate jekyll-sass-converter jekyll-sitemap \
 jekyll-feed jekyll-redirect-from
 # Installation clean up
 RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/*
@@ -30,9 +26,7 @@ yaml-dev libffi-dev libxml2-dev
 RUN apk search --update
 # Jekyll setup
 RUN mkdir /jekyll
-COPY _config.yml /jekyll/_config.yml
-COPY index.md /jekyll/index.md
-COPY feed.xml /jekyll/feed.xml
+RUN mkdir /jekyll/_cache
 # Working preparation
 WORKDIR /jekyll
 EXPOSE 8000
