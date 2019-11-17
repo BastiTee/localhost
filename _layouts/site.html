@@ -10,17 +10,15 @@
 
 <table id="bloglist">
 {% for post in site.posts %}
-{% if post.forward %}
 <tr>
     <td valign="top" class="blogdate"><span class="site-blogmeta">{{ post.date | date: "%d.%m.%Y" }}</span></td>
-    <td valign="top" class="blogref {%if post.draft %}blogref-draft{% endif %}"><a target="_blank" href="{{ post.forward }}">{{ post.title }} <i style="font-size: 70%" class="fa fa-external-link" aria-hidden="true"></i></a></td>
-</tr>
+    <td valign="top" class="blogref {%if post.draft %}blogref-draft{% endif %}">
+{% if post.forward %}
+    <a target="_blank" href="{{ post.forward }}"><i style="font-size: 80%" class="fa fa-external-link" aria-hidden="true"></i> {%if post.broken %}❌ {% endif %}{{ post.title }}</a>
 {% else %}
-<tr>
-<td valign="top" class="blogdate"><span class="site-blogmeta">{{ post.date | date: "%d.%m.%Y" }}</span></td>
-<td valign="top" class="blogref {%if post.draft %}blogref-draft{% endif %}"><a href="{{ post.url }}">{{ post.title }}</a></td>
-</tr>
+    <a href="{{ post.url }}">{%if post.broken %}❌ {% endif %}{{ post.title }}</a></td>
 {% endif %}
+</tr>
 {% endfor %}
 </table>
 
