@@ -1,1 +1,1 @@
-console.log('Here you can add Javascript code.')
+// console.log('Here you can add Javascript code.')
