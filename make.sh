@@ -31,7 +31,7 @@ EOF
 exit 0
 }
 
-while getopts p:d:a:t:x:u:gsh opt
+while getopts p:d:a:t:x:c:u:gsh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
