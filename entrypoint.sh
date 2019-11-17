@@ -9,7 +9,6 @@ adduser -s /bin/sh -u $USER_ID user -D
 export HOME=/home/user
 
 mkdir -p /home/user/jekyll
-mkdir -p /home/user/jekyll/_cache
 mkdir -p /home/user/jekyll/_site
 chown -R user:user /home/user/jekyll
 cd /home/user/jekyll

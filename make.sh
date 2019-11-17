@@ -18,26 +18,28 @@ print_help() {
 Usage: $( basename $0 ) [OPTS]
 
 Options:
-    -p  DIR     Jekyll _posts folder (default: ./example-notebook/posts)
-    -d  DIR     Jekyll _drafts folder (default: ./example-notebook/drafts)
-    -a  DIR     Assets folder (default: ./example-notebook/assets)
-    -t  DIR     Jekyll _site folder (default: ./_site)
-    -c  CMD     Jekyll command line (default: $DEFAULT_COMMAND)
-    -u URL      Overwrites site url (default: http://localhost:50600)
-    -g          Only generate target site
-    -s          Skip docker image creation
+    -p  DIR   Jekyll _posts folder (default: ./example-notebook/posts)
+    -d  DIR   Jekyll _drafts folder (default: ./example-notebook/drafts)
+    -a  DIR   Assets folder (default: ./example-notebook/assets)
+    -t  DIR   Jekyll _site folder (default: ./_site)
+    -c  DIR   Jekyll preview cache (default: ./_cache)
+    -x  CMD   Jekyll command line (default: $DEFAULT_COMMAND)
+    -u  URL   Overwrites site url (default: http://localhost:50600)
+    -g        Only generate target site
+    -s        Skip docker image creation
 EOF
 exit 0
 }
 
-while getopts p:d:a:t:c:u:gsh opt
+while getopts p:d:a:t:x:u:gsh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
        d) DRAFTS_FOLDER=$OPTARG;;
        a) ASSETS_FOLDER=$OPTARG;;
        t) TARGET_FOLDER=$OPTARG;;
-       c) COMMAND="$OPTARG";;
+       c) CACHE_FOLDER=$OPTARG;;
+       x) COMMAND="$OPTARG";;
        g) GENERATE=1;;
        s) SKIP_DOCKER=1;;
        u) SITE_URL="$OPTARG";;
@@ -48,6 +50,8 @@ done
 POSTS_FOLDER=${POSTS_FOLDER:-$(pwd)/example-notebook/posts}
 DRAFTS_FOLDER=${DRAFTS_FOLDER:-$(pwd)/example-notebook/drafts}
 ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
+CACHE_FOLDER=${CACHE_FOLDER:-$(pwd)/_cache}
+mkdir -p $CACHE_FOLDER
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
 SITE_URL=${SITE_URL:-http://localhost:50600}
 COMMAND=${COMMAND:-$DEFAULT_COMMAND}
@@ -59,6 +63,7 @@ cat << EOF
 POSTS FOLDER:   $POSTS_FOLDER
 DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
+CACHE FOLDER:   $CACHE_FOLDER
 TARGET FOLDER:  $TARGET_FOLDER
 SITE_URL:       $SITE_URL
 JEKYLL COMMAND: $COMMAND
@@ -86,6 +91,7 @@ docker run --rm -ti -p 50600:50600 -p 50601:50601 \
 -v ${POSTS_FOLDER}:/home/user/jekyll/_posts \
 -v ${DRAFTS_FOLDER}:/home/user/jekyll/_drafts \
 -v ${ASSETS_FOLDER}:/home/user/jekyll/res/assets \
+-v ${CACHE_FOLDER}:/home/user/jekyll/_cache \
 -v ${TARGET_FOLDER}:/home/user/jekyll/_site \
 "basti-tee/jekyll" \
 $COMMAND
