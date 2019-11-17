@@ -1,8 +1,8 @@
 title: localhost
 feed-title: localhost
-feed-description: Basti's localhost engine
+feed-description: Basti's localhost
 email: basti.tee@posteo.de
-url: "http://localhost:50600"
+url: ENV_SITE_URL
 github_username:  bastitee
 markdown: kramdown
 kramdown:

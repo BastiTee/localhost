@@ -23,13 +23,14 @@ Options:
     -a  DIR     Assets folder (default: ./example-notebook/assets)
     -t  DIR     Jekyll _site folder (default: ./_site)
     -c  CMD     Jekyll command line (default: $DEFAULT_COMMAND)
+    -u URL      Overwrites site url (default: http://localhost:50600)
     -g          Only generate target site
     -s          Skip docker image creation
 EOF
 exit 0
 }
 
-while getopts p:d:a:t:c:gsh opt
+while getopts p:d:a:t:c:u:gsh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
@@ -39,6 +40,7 @@ do
        c) COMMAND="$OPTARG";;
        g) GENERATE=1;;
        s) SKIP_DOCKER=1;;
+       u) SITE_URL="$OPTARG";;
        h) print_help ;;
        *) print_help ;;
    esac
@@ -47,6 +49,7 @@ POSTS_FOLDER=${POSTS_FOLDER:-$(pwd)/example-notebook/posts}
 DRAFTS_FOLDER=${DRAFTS_FOLDER:-$(pwd)/example-notebook/drafts}
 ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
+SITE_URL=${SITE_URL:-http://localhost:50600}
 COMMAND=${COMMAND:-$DEFAULT_COMMAND}
 GENERATE=${GENERATE:-0}
 SKIP_DOCKER=${SKIP_DOCKER:-0}
@@ -57,6 +60,7 @@ POSTS FOLDER:   $POSTS_FOLDER
 DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
 TARGET FOLDER:  $TARGET_FOLDER
+SITE_URL:       $SITE_URL
 JEKYLL COMMAND: $COMMAND
 ---
 EOF
@@ -64,10 +68,15 @@ EOF
 # Create jekyll docker image
 [ $SKIP_DOCKER -eq 0 ] && docker build -t "basti-tee/jekyll" .
 
+# Create copy of config to set environment variables
+sed \
+-e 's;ENV_SITE_URL;'$SITE_URL';g' \
+_config.yml > _config.yml.effective
+
 # Run dockerized jekyll
 docker run --rm -ti -p 50600:50600 -p 50601:50601 \
 -e LOCAL_USER_ID=`id -u $USER` \
--v $(pwd)/_config.yml:/home/user/jekyll/_config.yml \
+-v $(pwd)/_config.yml.effective:/home/user/jekyll/_config.yml \
 -v $(pwd)/index.md:/home/user/jekyll/index.md \
 -v $(pwd)/feed.xml:/home/user/jekyll/feed.xml \
 -v $(pwd)/_includes:/home/user/jekyll/_includes \
