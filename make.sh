@@ -79,7 +79,7 @@ sed \
 _config.yml > _config.yml.effective
 
 # Run dockerized jekyll
-docker run --rm -ti -p 50600:50600 -p 50601:50601 \
+docker run --rm -p 50600:50600 -p 50601:50601 \
 -e LOCAL_USER_ID=`id -u $USER` \
 -v $(pwd)/_config.yml.effective:/home/user/jekyll/_config.yml \
 -v $(pwd)/index.md:/home/user/jekyll/index.md \
