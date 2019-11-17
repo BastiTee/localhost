@@ -260,6 +260,10 @@ textarea {
     padding-right: 10px;
 }
 
+#bloglist .blogref-draft a {
+    color: #AAA !important;
+}
+
 #bloglist .blogref a {
     border-bottom: none;
 }
