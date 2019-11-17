@@ -24,11 +24,12 @@ Options:
     -t  DIR     Jekyll _site folder (default: ./_site)
     -c  CMD     Jekyll command line (default: $DEFAULT_COMMAND)
     -g          Only generate target site
+    -s          Skip docker image creation
 EOF
 exit 0
 }
 
-while getopts p:d:a:t:c:gh opt
+while getopts p:d:a:t:c:gsh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
@@ -37,6 +38,7 @@ do
        t) TARGET_FOLDER=$OPTARG;;
        c) COMMAND="$OPTARG";;
        g) GENERATE=1;;
+       s) SKIP_DOCKER=1;;
        h) print_help ;;
        *) print_help ;;
    esac
@@ -47,6 +49,7 @@ ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
 COMMAND=${COMMAND:-$DEFAULT_COMMAND}
 GENERATE=${GENERATE:-0}
+SKIP_DOCKER=${SKIP_DOCKER:-0}
 [ $GENERATE -eq 1 ] && COMMAND="build"
 cat << EOF
 ---
@@ -59,7 +62,7 @@ JEKYLL COMMAND: $COMMAND
 EOF
 
 # Create jekyll docker image
-docker build -t "basti-tee/jekyll" .
+[ $SKIP_DOCKER -eq 0 ] && docker build -t "basti-tee/jekyll" .
 
 # Run dockerized jekyll
 docker run --rm -ti -p 50600:50600 -p 50601:50601 \
