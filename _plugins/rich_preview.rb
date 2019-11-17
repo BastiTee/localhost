@@ -4,14 +4,14 @@ require 'nokogiri'
 require 'digest'
 
 module Jekyll
-  class PreviewTag < Liquid::Tag
+  class RichPreviewTag < Liquid::Tag
     def initialize(tag_name, tag_text, tokens)
       super
       @link_url = tag_text.scan(/https?:\/\/[\S]+/).first
-      build_preview_content
+      create_rich_preview
     end
 
-    def build_preview_content
+    def create_rich_preview
       if cache_exists?(@link_url)
         @preview_content = read_cache(@link_url).to_s
       else
@@ -83,4 +83,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('richpreview', Jekyll::PreviewTag)
+Liquid::Template.register_tag('richpreview', Jekyll::RichPreviewTag)
