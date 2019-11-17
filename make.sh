@@ -23,11 +23,12 @@ Options:
     -a  DIR     Assets folder (default: ./example-notebook/assets)
     -t  DIR     Jekyll _site folder (default: ./_site)
     -c  CMD     Jekyll command line (default: $DEFAULT_COMMAND)
+    -g          Only generate target site
 EOF
 exit 0
 }
 
-while getopts p:d:a:t:c:nh opt
+while getopts p:d:a:t:c:gh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
@@ -35,6 +36,7 @@ do
        a) ASSETS_FOLDER=$OPTARG;;
        t) TARGET_FOLDER=$OPTARG;;
        c) COMMAND="$OPTARG";;
+       g) GENERATE=1;;
        h) print_help ;;
        *) print_help ;;
    esac
@@ -44,9 +46,8 @@ DRAFTS_FOLDER=${DRAFTS_FOLDER:-$(pwd)/example-notebook/drafts}
 ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
 COMMAND=${COMMAND:-$DEFAULT_COMMAND}
-if [ $NATIVE -eq 1 ]; then
-    COMMAND=$( echo $COMMAND | sed -e "s/0.0.0.0/localhost/" )
-fi
+GENERATE=${GENERATE:-0}
+[ $GENERATE -eq 1 ] && COMMAND="build"
 cat << EOF
 ---
 POSTS FOLDER:   $POSTS_FOLDER
@@ -54,7 +55,6 @@ DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
 TARGET FOLDER:  $TARGET_FOLDER
 JEKYLL COMMAND: $COMMAND
-NATIVE:         $NATIVE
 ---
 EOF
 
