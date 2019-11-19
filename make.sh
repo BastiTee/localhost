@@ -29,7 +29,6 @@ Options:
     -t  DIR   Jekyll _site folder (default: ./_site)
     -c  DIR   Jekyll preview cache (default: ./_cache)
     -x  CMD   Jekyll command line (default: $SERVER_CMD)
-    -n  URL   Overwrites site url (default: http://localhost:50600)
     -u  USER  Executing username (defaukt: $USER)
     -g        Only generate target site
     -s        Skip docker image creation
@@ -37,7 +36,7 @@ EOF
 exit 0
 }
 
-while getopts y:p:d:a:t:x:c:n:u:gsh opt
+while getopts y:p:d:a:t:x:c:u:gsh opt
 do
    case $opt in
        y) YAML_FILE=$OPTARG;;
@@ -49,7 +48,6 @@ do
        x) COMMAND="$OPTARG";;
        g) GENERATE=1;;
        s) SKIP_DOCKER=1;;
-       n) SITE_URL="$OPTARG";;
        u) USERNAME="$OPTARG";;
        h) print_help ;;
        *) print_help ;;
@@ -62,7 +60,6 @@ ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
 CACHE_FOLDER=${CACHE_FOLDER:-$(pwd)/_cache}
 mkdir -p $CACHE_FOLDER
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
-SITE_URL=${SITE_URL:-http://localhost:50600}
 COMMAND=${COMMAND:-$SERVER_CMD}
 [ ${GENERATE:-0} -eq 1 ] && COMMAND="$BUILD_CMD"
 USERNAME=${USERNAME:-$USER}
@@ -75,7 +72,6 @@ DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
 CACHE FOLDER:   $CACHE_FOLDER
 TARGET FOLDER:  $TARGET_FOLDER
-SITE_URL:       $SITE_URL
 USERNAME:       $USERNAME
 JEKYLL COMMAND: $COMMAND
 ---
