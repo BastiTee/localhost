@@ -9,5 +9,6 @@ echo "Starting with user: $USER_ID"
 
 mkdir -p /usr/share/jekyll
 mkdir -p /usr/share/jekyll/_site
+chown $USER_ID:$USER_ID /usr/share/jekyll
 cd /usr/share/jekyll
 exec su-exec $USER_ID jekyll "$@"
