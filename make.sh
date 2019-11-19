@@ -2,7 +2,7 @@
 set -e
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
-DEFAULT_COMMAND="server \
+SERVER_CMD="server \
 --drafts \
 --host 0.0.0.0 \
 --port 50600 \
@@ -10,6 +10,10 @@ DEFAULT_COMMAND="server \
 --livereload \
 --watch \
 --livereload-port 50601 \
+--trace \
+"
+
+BUILD_CMD="build \
 --trace \
 "
 
@@ -23,7 +27,7 @@ Options:
     -a  DIR   Assets folder (default: ./example-notebook/assets)
     -t  DIR   Jekyll _site folder (default: ./_site)
     -c  DIR   Jekyll preview cache (default: ./_cache)
-    -x  CMD   Jekyll command line (default: $DEFAULT_COMMAND)
+    -x  CMD   Jekyll command line (default: $SERVER_CMD)
     -n  URL   Overwrites site url (default: http://localhost:50600)
     -u  USER  Executing username (defaukt: $USER)
     -g        Only generate target site
@@ -56,11 +60,10 @@ CACHE_FOLDER=${CACHE_FOLDER:-$(pwd)/_cache}
 mkdir -p $CACHE_FOLDER
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
 SITE_URL=${SITE_URL:-http://localhost:50600}
-COMMAND=${COMMAND:-$DEFAULT_COMMAND}
-GENERATE=${GENERATE:-0}
+COMMAND=${COMMAND:-$SERVER_CMD}
+[ ${GENERATE:-0} -eq 1 ] && COMMAND="$BUILD_CMD"
 USERNAME=${USERNAME:-$USER}
 SKIP_DOCKER=${SKIP_DOCKER:-0}
-[ $GENERATE -eq 1 ] && COMMAND="build"
 cat << EOF
 ---
 POSTS FOLDER:   $POSTS_FOLDER
