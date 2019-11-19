@@ -10,7 +10,7 @@ print_help() {
 Usage: $( basename $0 ) [OPTS]
 
 Options:
-    -c  CMD     Command [server,generate,printconf]     
+    -c  CMD     Command [server,generate,printenv]     
     -e  ENVFILE Environment configuration file (default: config-environment)
 EOF
 }
@@ -35,7 +35,7 @@ if [ "$CMD" = "server" ]; then
     --livereload --watch --livereload-port 50601 --trace $LH_ADD_ARGS"
 elif [ "$CMD" = "generate" ]; then
     export LH_CMD="build --trace $LH_ADD_ARGS"
-elif [ "$CMD" = "printconf" ]; then
+elif [ "$CMD" = "printenv" ]; then
     env |grep -e "^LH_*"|sort  # Print configuration
     exit 0
 else
