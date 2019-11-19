@@ -15,9 +15,12 @@ module Jekyll
       if cache_exists?(@link_url)
         @preview_content = read_cache(@link_url).to_s
       else
-        doc = Nokogiri::HTML(open(@link_url))
-
-        title = get_title(doc)
+        begin
+          doc = Nokogiri::HTML(open(@link_url))
+        rescue
+          doc = nil
+        end
+        title = get_title(doc, @link_url)
         image = get_image(doc)
         desc = get_description(doc)
         
@@ -36,7 +39,10 @@ module Jekyll
       %|#{@preview_content}|
     end
 
-  def get_title(doc)
+  def get_title(doc, link_url)
+    if doc == nil
+      return link_url
+    end
     title = get_tag_from_doc(doc, "meta[property='og:title']")
     unless title.to_s.strip.empty?
         return title
@@ -45,6 +51,9 @@ module Jekyll
   end
 
   def get_image(doc)
+    if doc == nil
+      return 'https://via.placeholder.com/300x200?text=No+preview'
+    end
     image = get_tag_from_doc(doc, "meta[property='og:image']")
     unless image.to_s.strip.empty?
         return image
@@ -53,6 +62,9 @@ module Jekyll
   end
 
   def get_description(doc)
+    if doc == nil
+      return 'Could not access URL to create rich link preview'
+    end
     desc = get_tag_from_doc(doc, "meta[property='og:description']")
     unless desc.to_s.strip.empty?
         return desc

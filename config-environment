@@ -1,0 +1,8 @@
+export LH_YAML_FILE="$(pwd)/_config.yml"
+export LH_ADD_ARGS="--drafts"
+export LH_POSTS_FOLDER="$(pwd)/example-notebook/posts"
+export LH_DRAFTS_FOLDER="$(pwd)/example-notebook/drafts"
+export LH_ASSETS_FOLDER="$(pwd)/example-notebook/assets"
+export LH_TARGET_FOLDER="$(pwd)/_site"
+export LH_CACHE_FOLDER="$(pwd)/_cache"
+export LH_SKIP_DOCKER=0
