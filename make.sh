@@ -29,14 +29,13 @@ Options:
     -t  DIR   Jekyll _site folder (default: ./_site)
     -c  DIR   Jekyll preview cache (default: ./_cache)
     -x  CMD   Jekyll command line (default: $SERVER_CMD)
-    -u  USER  Executing username (defaukt: $USER)
     -g        Only generate target site
     -s        Skip docker image creation
 EOF
 exit 0
 }
 
-while getopts y:p:d:a:t:x:c:u:gsh opt
+while getopts y:p:d:a:t:x:c:gsh opt
 do
    case $opt in
        y) YAML_FILE=$OPTARG;;
@@ -48,7 +47,6 @@ do
        x) COMMAND="$OPTARG";;
        g) GENERATE=1;;
        s) SKIP_DOCKER=1;;
-       u) USERNAME="$OPTARG";;
        h) print_help ;;
        *) print_help ;;
    esac
@@ -62,7 +60,6 @@ mkdir -p $CACHE_FOLDER
 TARGET_FOLDER=${TARGET_FOLDER:-$(pwd)/_site}
 COMMAND=${COMMAND:-$SERVER_CMD}
 [ ${GENERATE:-0} -eq 1 ] && COMMAND="$BUILD_CMD"
-USERNAME=${USERNAME:-$USER}
 SKIP_DOCKER=${SKIP_DOCKER:-0}
 cat << EOF
 ---
@@ -72,7 +69,6 @@ DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
 CACHE FOLDER:   $CACHE_FOLDER
 TARGET FOLDER:  $TARGET_FOLDER
-USERNAME:       $USERNAME
 JEKYLL COMMAND: $COMMAND
 ---
 EOF
@@ -82,7 +78,7 @@ EOF
 
 # Run dockerized jekyll
 docker run --rm -p 50600:50600 -p 50601:50601 \
--e LOCAL_USER_ID=`id -u $USERNAME` \
+-e LOCAL_USER_ID=`id -u $USER` \
 -v ${YAML_FILE}:/usr/share/jekyll/_config.yml \
 -v $(pwd)/index.md:/usr/share/jekyll/index.md \
 -v $(pwd)/feed.xml:/usr/share/jekyll/feed.xml \
