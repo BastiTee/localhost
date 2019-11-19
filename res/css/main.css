@@ -181,9 +181,8 @@ textarea {
 }
 
 #post-content blockquote p {
-    margin-left: auto;
-    /*border: 1px solid red;*/
-    text-align: right;
+    margin-right: auto;
+    text-align: left;
     font-size: 95%;
     width: 75%;
     font-style: italic;
