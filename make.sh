@@ -24,15 +24,15 @@ Options:
     -t  DIR   Jekyll _site folder (default: ./_site)
     -c  DIR   Jekyll preview cache (default: ./_cache)
     -x  CMD   Jekyll command line (default: $DEFAULT_COMMAND)
-    -u  URL   Overwrites site url (default: http://localhost:50600)
-    -w  USER  Executing username (defaukt: $USER)
+    -n  URL   Overwrites site url (default: http://localhost:50600)
+    -u  USER  Executing username (defaukt: $USER)
     -g        Only generate target site
     -s        Skip docker image creation
 EOF
 exit 0
 }
 
-while getopts p:d:a:t:x:c:u:w:gsh opt
+while getopts p:d:a:t:x:c:n:u:gsh opt
 do
    case $opt in
        p) POSTS_FOLDER=$OPTARG;;
@@ -43,8 +43,8 @@ do
        x) COMMAND="$OPTARG";;
        g) GENERATE=1;;
        s) SKIP_DOCKER=1;;
-       w) USERNAME="$OPTARG";;
-       u) SITE_URL="$OPTARG";;
+       n) SITE_URL="$OPTARG";;
+       u) USERNAME="$OPTARG";;
        h) print_help ;;
        *) print_help ;;
    esac
@@ -85,17 +85,17 @@ _config.yml > _config.yml.effective
 # Run dockerized jekyll
 docker run --rm -p 50600:50600 -p 50601:50601 \
 -e LOCAL_USER_ID=`id -u $USERNAME` \
--v $(pwd)/_config.yml.effective:/home/user/jekyll/_config.yml \
--v $(pwd)/index.md:/home/user/jekyll/index.md \
--v $(pwd)/feed.xml:/home/user/jekyll/feed.xml \
--v $(pwd)/_includes:/home/user/jekyll/_includes \
--v $(pwd)/_layouts:/home/user/jekyll/_layouts \
--v $(pwd)/_plugins:/home/user/jekyll/_plugins \
--v $(pwd)/res:/home/user/jekyll/res \
--v ${POSTS_FOLDER}:/home/user/jekyll/_posts \
--v ${DRAFTS_FOLDER}:/home/user/jekyll/_drafts \
--v ${ASSETS_FOLDER}:/home/user/jekyll/res/assets \
--v ${CACHE_FOLDER}:/home/user/jekyll/_cache \
--v ${TARGET_FOLDER}:/home/user/jekyll/_site \
+-v $(pwd)/_config.yml.effective:/usr/share/jekyll/_config.yml \
+-v $(pwd)/index.md:/usr/share/jekyll/index.md \
+-v $(pwd)/feed.xml:/usr/share/jekyll/feed.xml \
+-v $(pwd)/_includes:/usr/share/jekyll/_includes \
+-v $(pwd)/_layouts:/usr/share/jekyll/_layouts \
+-v $(pwd)/_plugins:/usr/share/jekyll/_plugins \
+-v $(pwd)/res:/usr/share/jekyll/res \
+-v ${POSTS_FOLDER}:/usr/share/jekyll/_posts \
+-v ${DRAFTS_FOLDER}:/usr/share/jekyll/_drafts \
+-v ${ASSETS_FOLDER}:/usr/share/jekyll/res/assets \
+-v ${CACHE_FOLDER}:/usr/share/jekyll/_cache \
+-v ${TARGET_FOLDER}:/usr/share/jekyll/_site \
 "basti-tee/jekyll" \
 $COMMAND
