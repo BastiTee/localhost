@@ -29,13 +29,13 @@ done
 
 if [ -z "$CMD" ]; then echo "No command selected!"; print_help; fi
 ENVFILE=${ENVFILE:-config-environment}
-source $ENVFILE
-if [ "$CMD" == "server" ]; then
+. $ENVFILE
+if [ "$CMD" = "server" ]; then
     export LH_CMD="server --host 0.0.0.0 --port 50600 --incremental 
     --livereload --watch --livereload-port 50601 --trace $LH_ADD_ARGS"
-elif [ "$CMD" == "generate" ]; then
+elif [ "$CMD" = "generate" ]; then
     export LH_CMD="build --trace $LH_ADD_ARGS"
-elif [ "$CMD" == "printconf" ]; then
+elif [ "$CMD" = "printconf" ]; then
     env |grep -e "^LH_*"|sort  # Print configuration
     exit 0
 else
