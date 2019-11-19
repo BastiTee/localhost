@@ -13,7 +13,6 @@ Options:
     -c  CMD     Command [server,generate,printconf]     
     -e  ENVFILE Environment configuration file (default: config-environment)
 EOF
-exit 0
 }
 
 while getopts c:e:h opt
@@ -21,8 +20,8 @@ do
    case $opt in
        c) CMD=$OPTARG;;
        e) ENVFILE=$OPTARG;;
-       h) print_help ;;
-       *) print_help ;;
+       h) print_help; exit 0;;
+       *) echo "Unknown option."; print_help; exit 1;;
    esac
 done
 
@@ -40,7 +39,9 @@ elif [ "$CMD" == "printconf" ]; then
     env |grep -e "^LH_*"|sort  # Print configuration
     exit 0
 else
-    echo "Invalid command name."; print_help
+    echo "Invalid command name."
+    print_help
+    exit 1
 fi
 env |grep -e "^LH_*"|sort  # Print configuration
 
