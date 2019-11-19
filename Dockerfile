@@ -11,7 +11,7 @@ ncurses-terminfo-base ncurses-terminfo \
 libxslt libxslt-dev zlib-dev zlib \
 ruby-full ruby-dev yaml yaml-dev \
 libffi-dev build-base git nodejs \
-ruby-io-console ruby-irb ruby-json ruby-rake
+ruby-io-console ruby-irb ruby-json ruby-rake su-exec
 # Required ruby gems
 RUN gem install --no-document \
 redcarpet kramdown maruku rdiscount RedCloth liquid pygments.rb sass safe_yaml \
@@ -25,7 +25,6 @@ yaml-dev libffi-dev libxml2-dev
 # Index refresh
 RUN apk search --update
 
-RUN apk add su-exec
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
@@ -33,3 +32,4 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 EXPOSE 50600 50601
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
