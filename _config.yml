@@ -1,9 +1,8 @@
 title: localhost
 feed-title: localhost
-feed-description: Basti's localhost
-email: basti.tee@posteo.de
+feed-description: localhost feed
+email: me@mymail.de
 url: http://localhost:50600
-github_username:  bastitee
 markdown: kramdown
 kramdown:
   input: GFM

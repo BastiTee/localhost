@@ -2,7 +2,7 @@
 layout: post
 title: "Example page"
 date:   2019-01-01 12:00:00 +0100
-twitter: https://twitter.com/BastiTee
+twitter: https://twitter.com/
 source: 
 ---
 
