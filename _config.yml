@@ -4,6 +4,8 @@ feed-description: localhost feed
 email: me@mymail.de
 url: http://localhost:50600
 markdown: kramdown
+plugins:
+  - jekyll-toc
 kramdown:
   input: GFM
   syntax_highlighter: rouge

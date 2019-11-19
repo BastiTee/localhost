@@ -16,7 +16,7 @@ ruby-io-console ruby-irb ruby-json ruby-rake su-exec
 RUN gem install --no-document \
 redcarpet kramdown maruku rdiscount RedCloth liquid pygments.rb sass safe_yaml \
 nokogiri jekyll jekyll-paginate jekyll-sass-converter jekyll-sitemap \
-jekyll-feed jekyll-redirect-from
+jekyll-feed jekyll-redirect-from jekyll-toc
 # Installation clean up
 RUN rm -rf /root/src /tmp/* /usr/share/man /var/cache/apk/*
 RUN apk del \
