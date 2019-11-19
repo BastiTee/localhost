@@ -22,6 +22,7 @@ print_help() {
 Usage: $( basename $0 ) [OPTS]
 
 Options:
+    -y  YAML  Input configuration file (default: ./_config.yml)
     -p  DIR   Jekyll _posts folder (default: ./example-notebook/posts)
     -d  DIR   Jekyll _drafts folder (default: ./example-notebook/drafts)
     -a  DIR   Assets folder (default: ./example-notebook/assets)
@@ -36,9 +37,10 @@ EOF
 exit 0
 }
 
-while getopts p:d:a:t:x:c:n:u:gsh opt
+while getopts y:p:d:a:t:x:c:n:u:gsh opt
 do
    case $opt in
+       y) YAML_FILE=$OPTARG;;
        p) POSTS_FOLDER=$OPTARG;;
        d) DRAFTS_FOLDER=$OPTARG;;
        a) ASSETS_FOLDER=$OPTARG;;
@@ -53,6 +55,7 @@ do
        *) print_help ;;
    esac
 done
+YAML_FILE=${YAML_FILE:-$(pwd)/_config.yml}
 POSTS_FOLDER=${POSTS_FOLDER:-$(pwd)/example-notebook/posts}
 DRAFTS_FOLDER=${DRAFTS_FOLDER:-$(pwd)/example-notebook/drafts}
 ASSETS_FOLDER=${ASSETS_FOLDER:-$(pwd)/example-notebook/assets}
@@ -66,6 +69,7 @@ USERNAME=${USERNAME:-$USER}
 SKIP_DOCKER=${SKIP_DOCKER:-0}
 cat << EOF
 ---
+YAML FILE:      $YAML_FILE
 POSTS FOLDER:   $POSTS_FOLDER
 DRAFTS FOLDER:  $DRAFTS_FOLDER
 ASSETS FOLDER:  $ASSETS_FOLDER
@@ -80,15 +84,10 @@ EOF
 # Create jekyll docker image
 [ $SKIP_DOCKER -eq 0 ] && docker build -t "basti-tee/jekyll" .
 
-# Create copy of config to set environment variables
-sed \
--e 's;ENV_SITE_URL;'$SITE_URL';g' \
-_config.yml > _config.yml.effective
-
 # Run dockerized jekyll
 docker run --rm -p 50600:50600 -p 50601:50601 \
 -e LOCAL_USER_ID=`id -u $USERNAME` \
--v $(pwd)/_config.yml.effective:/usr/share/jekyll/_config.yml \
+-v ${YAML_FILE}:/usr/share/jekyll/_config.yml \
 -v $(pwd)/index.md:/usr/share/jekyll/index.md \
 -v $(pwd)/feed.xml:/usr/share/jekyll/feed.xml \
 -v $(pwd)/_includes:/usr/share/jekyll/_includes \
