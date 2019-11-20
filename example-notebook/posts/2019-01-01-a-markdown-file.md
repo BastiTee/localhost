@@ -14,9 +14,9 @@ Paragraphs are separated by a blank line.
 
 Itemized lists look like:
 
-  * this one
-  * that one
-  * the other one
+* this one
+* that one
+* the other one
 
 Note that --- not considering the asterisk --- the actual text
 content starts at 4-columns in.
@@ -41,6 +41,10 @@ Include an image with plain markdown
 Include an image with included img-template for better appearance
 
 {% include img.html src="res/assets/photo.jpg" width=10 desc="This is a description" border=false %}
+
+# Rich previews
+
+{% richpreview https://www.zeit.de/2019/47/emojis-selbstdarstellung-smartphone-selfie %}
 
 # Lists
 
@@ -92,23 +96,23 @@ A horizontal rule follows.
 As you probably guessed, indented 4 spaces. By the way, instead of
 indenting the block, you can use delimited blocks, if you like:
 
-~~~
+```
 define foobar() {
     print "Welcome to flavor country!";
 }
-~~~
+```
 
 (which makes copying & pasting easier). You can optionally mark the
 delimited block for Pandoc to syntax highlight it:
 
-~~~python
+```python
 import time
 # Quick, count to ten!
 for i in range(10):
     # (but not *too* quick)
     time.sleep(0.5)
     print i
-~~~
+```
 
 # Links
 
@@ -119,10 +123,6 @@ doc](#links).
 Here's a footnote[^1].
 
 [^1]: Footnote text goes here.
-
-# Rich previews
-
-{% richpreview https://www.zeit.de/2019/47/emojis-selbstdarstellung-smartphone-selfie %}
 
 # Tables
 
