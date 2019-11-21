@@ -22,9 +22,9 @@
     <i id="back-button" class="fa fa-long-arrow-left button" ></i></a>
     </div>
 
-    {% if page.source %}
-    <div id="source-container"><a href="{{ page.source }}">
-    <i id="source-button" class="fa fa-code button" ></i></a>
+    {% if page.toc %}
+    <div id="toc-container" onclick="toggleTableOfContent()">
+    <i id="toc-button" class="fa fa-list button"></i></a>
     </div>{% endif %}
 
     {% if page.twitter %}
@@ -36,7 +36,12 @@
 
 <div id="post-content-wrapper">
 <div id="post-content" itemprop="articleBody">
-    {{ content | toc }}
+    {% if page.toc %}
+    <div id="table-of-content" onclick="toggleTableOfContent()">
+        {% toc %}
+    </div>
+    {% endif %}
+    {{ content }}
 </div>
 </div>
 

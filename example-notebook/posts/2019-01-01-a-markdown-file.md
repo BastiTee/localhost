@@ -3,7 +3,7 @@ layout: post
 title: "Example page"
 date:   2019-01-01 12:00:00 +0100
 twitter: https://twitter.com/
-toc: false
+toc: true
 ---
 
 # Basic writing
@@ -11,6 +11,8 @@ toc: false
 Paragraphs are separated by a blank line.
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. 
+
+## Lists
 
 Itemized lists look like:
 
@@ -21,11 +23,15 @@ Itemized lists look like:
 Note that --- not considering the asterisk --- the actual text
 content starts at 4-columns in.
 
+## Quotes
+
 > Block quotes are
 > written like so.
 >
 > They can span multiple paragraphs,
 > if you like.
+
+## Characters
 
 Use 3 dashes `---` for an em-dash. Use 2 dashes `--` for ranges (ex., "it's all
 in chapters 12--14"). Three dots `...` will be converted to an ellipsis ...

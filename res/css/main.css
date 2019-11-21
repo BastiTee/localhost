@@ -322,7 +322,7 @@ textarea {
     padding: 5px 0px 5px 0px;
     background-color: #3DA8C5;
     color: #FFFFFF;
-    box-shadow: 0 6px 25px -3px #AAAAAA;
+    box-shadow: 0 3px 25px -3px #AAAAAA;
 }
 
 div#post-header-title {
@@ -366,6 +366,26 @@ div#post-header-meta {
     margin: 0px 0px 2px 0px;
 }
 
+/* TABLE OF CONTENT
+============================================================================*/
+
+#table-of-content {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+.section-nav {
+    background-color: #fff;
+    margin: 0px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+}
+.section-nav * {
+    list-style-type: none;
+    list-style-position: outside;
+}
 
 /* POST HEADER BAR BUTTONS W/ TRANSITIONS
 ============================================================================*/
@@ -386,7 +406,7 @@ i.button {
 
 div#back-container {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.6em;
     background-color: transparent;
 }
 
@@ -412,7 +432,7 @@ i#back-button:hover {
 
 div#twitter-container {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.6em;
     background-color: transparent;
 }
 
@@ -436,27 +456,27 @@ i#twitter-button:hover {
     background-color: white;
 }
 
-div#source-container {
+div#toc-container {
     display: inline-block;
-    font-size: 2em;
+    font-size: 1.6em;
     background-color: transparent;
 }
 
-div#source-container a {
+div#toc-container a {
     background-color: transparent;
     box-shadow: none;
 }
 
-div#source-container i {
+div#toc-container i {
     background-color: #3DA8C5;
     border-radius: 3em;
 }
 
-i#source-button {
+i#toc-button {
     color: white;
 }
 
-i#source-button:hover {
+i#toc-button:hover {
     color: #3DA8C5;
     background-color: white;
 }
