@@ -28,8 +28,8 @@ done
 # -----------------------------------------------------------------------------
 
 if [ -z "$CMD" ]; then echo "No command selected!"; print_help; exit 1; fi
-ENVFILE=${ENVFILE:-config-environment}
-. $(pwd)/$ENVFILE
+ENVFILE=${ENVFILE:-$(pwd)/config-environment}
+. $ENVFILE
 if [ "$CMD" = "server" ]; then
     export LH_CMD="server --host 0.0.0.0 --port 50600 --incremental 
     --livereload --watch --livereload-port 50601 --trace $LH_ADD_ARGS"
