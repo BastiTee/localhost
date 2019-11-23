@@ -123,6 +123,12 @@ textarea {
     color: #000000;
     text-decoration: none;
     border-bottom: 2px solid #dddddd;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 #main-body a.reversefootnote {
@@ -369,17 +375,22 @@ div#post-header-meta {
 /* TABLE OF CONTENT
 ============================================================================*/
 
+#table-of-content::-webkit-scrollbar {
+    display: none;
+}
+
 #table-of-content {
     display: none;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     overflow: auto;
-    height: 30em;
+    height: 100%;
+    width: 50%;
+    background-color: #fff;
 }
 
 .section-nav {
-    background-color: #fff;
     margin: 0px;
     padding: 10px 10px 10px 10px;
     border: 1px solid #e8e8e8;
