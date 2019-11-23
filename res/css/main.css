@@ -328,7 +328,7 @@ textarea {
     padding: 5px 0px 5px 0px;
     background-color: #3DA8C5;
     color: #FFFFFF;
-    box-shadow: 0 3px 25px -3px #AAAAAA;
+    /* box-shadow: 0 3px 25px -3px #AAAAAA; */
 }
 
 div#post-header-title {
