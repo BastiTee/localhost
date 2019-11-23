@@ -386,15 +386,15 @@ div#post-header-meta {
     left: 0;
     overflow: auto;
     height: 100%;
-    width: 90%;
+    max-width: 80%;
     background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
 }
 
 .section-nav {
     margin: 0px;
     padding: 10px 10px 10px 10px;
-    border: 1px solid #e8e8e8;
-    border-radius: 3px;
 }
 .section-nav * {
     list-style-type: none;
