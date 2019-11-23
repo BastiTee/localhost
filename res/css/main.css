@@ -374,6 +374,8 @@ div#post-header-meta {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    overflow: auto;
+    height: 30em;
 }
 
 .section-nav {
