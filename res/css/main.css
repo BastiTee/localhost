@@ -320,6 +320,10 @@ textarea {
     padding: 0px 0px 5px 0px;
 }
 
+#site-blogicon a {
+    border-bottom: none;
+}
+
 /* POST DEFAULTS
 ============================================================================*/
 

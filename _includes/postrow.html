@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-
-<body id="main-body">
-{% include site-ext.html %}
-
-<div id="site-bloglist">
-<div id="site-blogicon"><i class="fa fa-book" aria-hidden="true"></i></div>
-
-<table id="bloglist">
-{% for post in site.posts %}
 <tr>
     <td valign="top" class="blogdate"><span class="site-blogmeta">{{ post.date | date: "%d.%m.%Y" }}</span></td>
     <td valign="top" class="blogref {%if post.draft %}blogref-draft{% endif %}">
@@ -19,13 +7,3 @@
     <a href="{{ post.url }}">{%if post.broken %}❌ {% endif %}{{ post.title }}</a></td>
 {% endif %}
 </tr>
-{% endfor %}
-</table>
-
-</div>
-<script>
-{% include script.js %}
-</script>
-</body>
-
-</html>

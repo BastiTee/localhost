@@ -1,3 +1,3 @@
 ---
-layout: site
+layout: index
 ---

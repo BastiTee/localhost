@@ -56,6 +56,7 @@ docker run --rm -p 50600:50600 -p 50601:50601 \
 -e LOCAL_USER_ID=`id -u $USER` \
 -v ${LH_YAML_FILE}:/usr/share/jekyll/_config.yml \
 -v $(pwd)/index.md:/usr/share/jekyll/index.md \
+-v $(pwd)/archive.md:/usr/share/jekyll/archive.md \
 -v $(pwd)/feed.xml:/usr/share/jekyll/feed.xml \
 -v $(pwd)/_includes:/usr/share/jekyll/_includes \
 -v $(pwd)/_layouts:/usr/share/jekyll/_layouts \
