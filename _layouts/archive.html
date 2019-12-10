@@ -22,6 +22,14 @@
     {% endfor %}
     </table>
 {% endfor %}
+    <h3 class="category-head">Uncategorized</h3>
+    <table>
+    {% for post in site.posts %}
+    {% if post.categories == null or post.categories == empty %}
+    {% include postrow.html %}
+    {% endif %}
+    {% endfor %}
+    </table>
 </div>
 
 </div>
