@@ -17,7 +17,7 @@
 {% capture category_name %}{{ category | first }}{% endcapture %}
 <a href="#{{ category_name }}">{{ category_name }}</a>
 {% endfor %}
-<a href="#Uncategorized">Uncategorized</a>
+<a href="#uncategorized">uncategorized</a>
 </div>
 
 <div id="bloglist">
@@ -30,7 +30,7 @@
     {% endfor %}
     </table>
 {% endfor %}
-    <h3 id="Uncategorized">Uncategorized</h3>
+    <h3 id="uncategorized">uncategorized</h3>
     <table>
     {% for post in site.posts %}
     {% if post.categories == null or post.categories == empty %}
