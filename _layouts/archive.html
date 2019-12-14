@@ -23,14 +23,14 @@
 <div id="bloglist">
 {% for category in site.categories %}
 {% capture category_name %}{{ category | first }}{% endcapture %}
-    <h3 id="{{ category_name }}">{{ category_name }}</h3>
+    <h3 id="{{ category_name }}"><i class="fa fa-tag category-flag" aria-hidden="true"></i> {{ category_name }}</h3>
     <table>
     {% for post in site.categories[category_name] %}
     {% include postrow.html %}
     {% endfor %}
     </table>
 {% endfor %}
-    <h3 id="uncategorized">uncategorized</h3>
+    <h3 id="uncategorized"><i class="fa fa-tag category-flag" aria-hidden="true"></i> uncategorized</h3>
     <table>
     {% for post in site.posts %}
     {% if post.categories == null or post.categories == empty %}

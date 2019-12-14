@@ -339,6 +339,10 @@ textarea {
     border-bottom: none;
 }
 
+.category-flag {
+    color: #AAAAAA;
+}
+
 /* POST DEFAULTS
 ============================================================================*/
 
